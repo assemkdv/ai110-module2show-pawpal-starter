@@ -38,6 +38,50 @@ The User object represents the person using the app. It stores information such 
 
 ---
 
+### UML Diagram 
+
+```mermaid
+classDiagram
+    class User {
+        - string name
+        - List~Pet~ pets
+        + addPet(p: Pet)
+        + removePet(p: Pet)
+        + viewPets()
+    }
+
+    class Pet {
+        - string name
+        - string type
+        - int age
+        - string notes
+        + updatePetInfo()
+        + displayPetInfo()
+    }
+
+    class Task {
+        - string taskName
+        - float duration
+        - int priority
+        - DateTime scheduledTime
+        + updateTask()
+        + markComplete()
+        + displayTask()
+    }
+
+    class Schedule {
+        - List~Task~ tasks
+        - Date date
+        - float availableTime
+        + addTask(t: Task)
+        + generateDailyPlan()
+        + getTasksForToday()
+    }
+
+    User "1" o-- "*" Pet : "has"
+    Pet "1" o-- "*" Task : "has"
+    Schedule "1" o-- "*"
+
 ## 2. Scheduling Logic and Tradeoffs
 
 **a. Constraints and priorities**
