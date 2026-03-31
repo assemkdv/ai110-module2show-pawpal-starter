@@ -1,6 +1,16 @@
 # PawPal+ Project Reflection
 
 ## 1. System Design
+## System Design
+
+1. Add and Manage Pet Information  
+The user should be able to enter and store basic information about their pet, such as name, type, and other relevant details. This allows the system to organize tasks based on the specific pet.
+
+2. Create and Edit Tasks  
+The user should be able to add, update, and manage pet care tasks such as feeding, walking, or giving medication. Each task should include important details like duration and priority so the system can make decisions.
+
+3. Generate a Daily Plan  
+The user should be able to generate a daily schedule of tasks based on time constraints and priorities. The system should organize tasks in a logical order and provide a clear plan for the day.
 
 **a. Initial design**
 
