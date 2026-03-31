@@ -42,45 +42,47 @@ The User object represents the person using the app. It stores information such 
 
 ```mermaid
 classDiagram
-    class User {
-        - string name
-        - List~Pet~ pets
-        + addPet(p: Pet)
-        + removePet(p: Pet)
-        + viewPets()
-    }
 
-    class Pet {
-        - string name
-        - string type
-        - int age
-        - string notes
-        + updatePetInfo()
-        + displayPetInfo()
-    }
+class User {
+  -name
+  -pets
+  +addPet()
+  +removePet()
+  +viewPets()
+}
 
-    class Task {
-        - string taskName
-        - float duration
-        - int priority
-        - DateTime scheduledTime
-        + updateTask()
-        + markComplete()
-        + displayTask()
-    }
+class Pet {
+  -name
+  -type
+  -age
+  -notes
+  +updatePetInfo()
+  +displayPetInfo()
+}
 
-    class Schedule {
-        - List~Task~ tasks
-        - Date date
-        - float availableTime
-        + addTask(t: Task)
-        + generateDailyPlan()
-        + getTasksForToday()
-    }
+class Task {
+  -taskName
+  -duration
+  -priority
+  -scheduledTime
+  +updateTask()
+  +markComplete()
+  +displayTask()
+}
 
-    User "1" o-- "*" Pet : "has"
-    Pet "1" o-- "*" Task : "has"
-    Schedule "1" o-- "*"
+class Schedule {
+  -tasks
+  -date
+  -availableTime
+  +addTask()
+  +generateDailyPlan()
+  +getTasksForToday()
+}
+
+User "1" o-- "*" Pet : has
+Pet "1" o-- "*" Task : has
+Schedule "1" o-- "*" Task : manages
+```
 
 ## 2. Scheduling Logic and Tradeoffs
 
