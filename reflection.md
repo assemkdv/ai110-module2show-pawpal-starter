@@ -139,3 +139,21 @@ Schedule "1" o-- "*" Task : manages
 **c. Key takeaway**
 
 - What is one important thing you learned about designing systems or working with AI on this project?
+
+### 1a. Initial design
+
+The system is designed using four main classes: User, Pet, Task, and Schedule.
+
+The User class represents the person using the application and is responsible for managing pets. It stores the user’s name and a list of pets, and provides methods to add, remove, and view pets.
+
+The Pet class represents an individual pet and stores information such as name, type, age, and notes. It allows updating and displaying pet information.
+
+The Task class represents a specific pet care activity, such as feeding or walking. It stores details like task name, duration, priority, and scheduled time. It provides methods to update, display, and mark tasks as complete.
+
+The Schedule class manages all tasks for a given day. It keeps a list of tasks and organizes them based on time and priority. It provides methods to add tasks, generate a daily plan, and retrieve tasks for the current day.
+
+Together, these classes separate responsibilities clearly and make the system modular and easy to expand.
+
+### 1b. Design changes
+
+After reviewing the design, I considered adding a direct relationship between Task and Pet to make it clearer which pet each task belongs to. This could improve organization and scalability in future development. However, I decided to keep the current structure to maintain simplicity while still meeting the project requirements.
