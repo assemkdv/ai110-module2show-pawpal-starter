@@ -76,6 +76,11 @@ if st.button("Generate Schedule"):
         st.success("Schedule generated successfully!")
         st.table(data)
 
+        next_slot = scheduler.find_next_available_slot()
+
+        if next_slot:
+            st.info(f"Next available slot: {next_slot.strftime('%I:%M %p')}")
+
         conflicts = scheduler.detect_conflicts()
 
         for t1, t2 in conflicts:

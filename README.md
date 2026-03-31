@@ -90,3 +90,13 @@ PawPal+ includes several intelligent features to help pet owners manage daily ta
 
 ![PawPal App](pawpal_demo1.png)
 ![PawPal App](pawpal_demo2.png)
+
+### Advanced Feature: Next Available Slot
+
+An additional scheduling feature was implemented to identify the next available time slot for new tasks. The Scheduler analyzes existing tasks, sorts them by time, and finds gaps in the schedule. If no gaps exist, it suggests the next available time after the last task.
+
+This feature enhances usability by helping users plan new tasks efficiently.
+
+### Use of Agent Mode
+
+Agent Mode was used to help design and implement the "Next Available Slot" algorithm. It assisted in structuring the logic for iterating through sorted tasks and identifying gaps in time. The final implementation was reviewed and simplified to ensure readability and alignment with the overall system design.

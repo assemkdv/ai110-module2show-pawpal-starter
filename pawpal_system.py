@@ -148,4 +148,23 @@ class Scheduler:
                 if tasks[i].scheduled_time == tasks[j].scheduled_time:
                     conflicts.append((tasks[i], tasks[j]))
 
-        return conflicts           
+        return conflicts   
+
+    def find_next_available_slot(self):
+        """Find the next available time slot after scheduled tasks."""
+        tasks = self.sort_by_time(self.get_all_tasks())
+
+        if not tasks:
+            return None
+
+        # start from first task time
+        current_time = tasks[0].scheduled_time
+
+        for task in tasks:
+            # if there's a gap, return next free time
+            if task.scheduled_time > current_time:
+                return current_time
+            current_time = task.scheduled_time
+
+        # if no gaps, return last task time + 1 hour
+        return current_time.replace(hour=current_time.hour + 1)        
