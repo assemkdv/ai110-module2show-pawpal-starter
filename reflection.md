@@ -12,6 +12,20 @@ The user should be able to add, update, and manage pet care tasks such as feedin
 3. Generate a Daily Plan  
 The user should be able to generate a daily schedule of tasks based on time constraints and priorities. The system should organize tasks in a logical order and provide a clear plan for the day.
 
+### Building Blocks
+
+1. Pet  
+The Pet object represents an individual pet. It stores information such as the pet’s name, type, age, and notes. It allows the user to update and view pet information.
+
+2. Task  
+The Task object represents an activity related to pet care, such as feeding or walking. It stores details like task name, duration, priority, and scheduled time. It allows tasks to be updated, displayed, or marked as complete.
+
+3. Schedule  
+The Schedule object manages all tasks for a specific day. It stores a list of tasks and the available time. It can generate a daily plan, organize tasks, and display tasks for the day.
+
+4. User  
+The User object represents the person using the app. It stores information such as the user’s name and their pets. It allows the user to add, remove, and view pets.
+
 **a. Initial design**
 
 - Briefly describe your initial UML design.
