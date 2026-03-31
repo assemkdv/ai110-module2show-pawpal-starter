@@ -1,7 +1,7 @@
 from asyncio import tasks
 from dataclasses import dataclass, field
 from typing import List
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 # Task 
@@ -14,8 +14,24 @@ class Task:
     completed: bool = False
 
     def mark_complete(self):
-        """Mark the task as completed."""
+        """Mark the task as completed and return next occurrence if recurring."""
         self.completed = True
+
+        # Handle recurring tasks
+        if self.frequency == "daily":
+            new_time = self.scheduled_time + timedelta(days=1)
+        elif self.frequency == "weekly":
+            new_time = self.scheduled_time + timedelta(weeks=1)
+        else:
+            return None
+
+        # Create new task instance
+        return Task(
+            description=self.description,
+            scheduled_time=new_time,
+            priority=self.priority,
+            frequency=self.frequency
+        )
 
     def display_task(self):
         """Return a readable string of the task."""
@@ -109,3 +125,14 @@ class Scheduler:
                 filtered_tasks.extend(pet.tasks)
 
         return filtered_tasks
+    
+    def complete_task(self, task):
+        """Mark task complete and handle recurrence."""
+        new_task = task.mark_complete()
+
+        if new_task:
+            # find the pet and add the new task
+            for pet in self.owner.pets:
+                if task in pet.tasks:
+                    pet.add_task(new_task)
+                    break

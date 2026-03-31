@@ -56,3 +56,15 @@ print("\n-Dog Tasks")
 dog_tasks = scheduler.filter_by_pet("Buddy")
 for task in dog_tasks:
     print(task.display_task())
+
+print("\nCompleting a Task")
+
+task_to_complete = owner.pets[0].tasks[0]
+new_task = task_to_complete.mark_complete()
+
+if new_task:
+    owner.pets[0].add_task(new_task)
+
+print("\nUpdated Tasks")
+for task in owner.pets[0].tasks:
+    print(task.display_task())
