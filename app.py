@@ -4,6 +4,8 @@ from datetime import datetime
 
 st.set_page_config(page_title="PawPal+", page_icon="🐾", layout="centered")
 
+st.title("🐾 PawPal+")
+
 # create owner (temporary)
 if "owner" not in st.session_state:
     st.session_state.owner = Owner("Assem")
