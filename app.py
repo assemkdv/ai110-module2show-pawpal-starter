@@ -75,23 +75,13 @@ if st.button("Generate Schedule"):
 
         st.success("Schedule generated successfully!")
         st.table(data)
+
+        conflicts = scheduler.detect_conflicts()
+
+        for t1, t2 in conflicts:
+            st.warning(
+                f"⚠️ Conflict: '{t1.description}' and '{t2.description}' at the same time!"
+            )
+
     else:
         st.info("No tasks scheduled.")
-
-    conflicts = scheduler.detect_conflicts()
-
-if conflicts:
-    for t1, t2 in conflicts:
-        st.warning(
-            f"Conflict: '{t1.description}' and '{t2.description}' are scheduled at the same time!"
-        )
-
-    if tasks_today:
-        for task in tasks_today:
-            time_str = task.scheduled_time.strftime("%I:%M %p")
-            st.write(f"- {task.description} at {time_str}")
-    else:
-        st.write("No tasks scheduled for today.")
-
-
-

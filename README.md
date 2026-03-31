@@ -73,3 +73,15 @@ The test suite covers key functionality of the system, including:
 (4/5)
 
 The system performs reliably for the tested scenarios, including sorting, recurrence, and conflict detection. While the algorithms are effective, some edge cases (such as overlapping durations rather than exact time matches) could be improved in future iterations.
+
+## Features
+
+PawPal+ includes several intelligent features to help pet owners manage daily tasks efficiently:
+
+- **Add and Manage Pets:** Create and store multiple pets with their details.
+- **Task Management:** Assign tasks such as feeding, walking, or vet visits to specific pets.
+- **Sorting by Time:** Tasks are automatically sorted in chronological order for a clear daily schedule.
+- **Filtering:** Tasks can be filtered by completion status or by pet.
+- **Recurring Tasks:** Daily and weekly tasks automatically generate future occurrences when completed.
+- **Conflict Detection:** The system detects tasks scheduled at the same time and provides warnings.
+- **Interactive UI:** A Streamlit interface allows users to easily interact with the system.
