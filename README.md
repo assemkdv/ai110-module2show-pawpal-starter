@@ -85,3 +85,8 @@ PawPal+ includes several intelligent features to help pet owners manage daily ta
 - **Recurring Tasks:** Daily and weekly tasks automatically generate future occurrences when completed.
 - **Conflict Detection:** The system detects tasks scheduled at the same time and provides warnings.
 - **Interactive UI:** A Streamlit interface allows users to easily interact with the system.
+
+## 📸 Demo
+
+![PawPal App](pawpal_demo1.png)
+![PawPal App](pawpal_demo2.png)
