@@ -188,3 +188,26 @@ The system will detect when two tasks overlap in time and notify the user of pot
 
 These improvements will make the system more efficient and user-friendly by automating task management and improving schedule clarity.
 
+### Testing Plan
+
+To verify that the PawPal+ system works correctly, several core behaviors were identified for testing.
+
+1. Adding Tasks  
+Ensure that tasks can be successfully added to a pet and stored correctly.
+
+2. Sorting Tasks  
+Verify that tasks are sorted by scheduled time in chronological order.
+
+3. Filtering Tasks  
+Check that tasks can be filtered by completion status (completed vs pending) and by pet name.
+
+4. Recurring Tasks  
+Confirm that when a recurring task (daily or weekly) is marked as complete, a new task is automatically created with the correct future date.
+
+5. Conflict Detection  
+Ensure that the system detects when two tasks are scheduled at the same time and returns a warning.
+
+In addition to normal "happy path" scenarios, edge cases will also be tested, such as:
+- A pet with no tasks
+- Multiple tasks scheduled at the exact same time
+- Completing a non-recurring task
