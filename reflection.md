@@ -215,3 +215,17 @@ In addition to normal "happy path" scenarios, edge cases will also be tested, su
 ### How should conflict warnings be shown?
 
 Conflict warnings should be displayed using Streamlit’s st.warning component so they are clearly visible to the user. The message should describe which tasks conflict and when, allowing the pet owner to easily identify and resolve scheduling issues. This approach ensures the system remains user-friendly while still providing important feedback.
+
+### AI Strategy Reflection
+
+During the development of PawPal+, I used VS Code Copilot to assist with generating code, structuring classes, and implementing algorithms. Several Copilot features were especially effective in building my scheduler.
+
+One of the most helpful features was code generation for repetitive structures, such as class methods and test cases. Copilot was also useful when suggesting Pythonic solutions, like using sorted() with lambda functions for sorting tasks by time. Additionally, it helped quickly scaffold methods for filtering and conflict detection, which saved time and improved efficiency.
+
+However, I did not accept every suggestion without review. For example, Copilot suggested a more complex approach for conflict detection that checked overlapping time ranges. While this was more advanced, I chose to simplify the implementation to only detect exact time matches. This decision kept the system easier to understand and aligned with the scope of the project.
+
+Using separate chat sessions for different phases (design, implementation, algorithms, testing) helped me stay organized and focused. It prevented confusion between tasks and allowed me to clearly think through each stage of development without mixing contexts.
+
+This project taught me the importance of being the “lead architect” when working with AI tools. While Copilot can generate useful code and suggestions, it is still my responsibility to evaluate those suggestions, ensure they fit my design, and maintain clarity in my system. I learned that AI is a powerful assistant, but the human developer must guide the overall structure and make final decisions.
+
+Overall, collaborating with AI improved my productivity, but also required critical thinking to balance efficiency with simplicity and readability.
