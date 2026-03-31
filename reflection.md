@@ -157,3 +157,25 @@ Together, these classes separate responsibilities clearly and make the system mo
 ### 1b. Design changes
 
 After reviewing the design, I considered adding a direct relationship between Task and Pet to make it clearer which pet each task belongs to. This could improve organization and scalability in future development. However, I decided to keep the current structure to maintain simplicity while still meeting the project requirements.
+
+### Algorithmic Planning
+
+The current scheduling system works but is relatively simple. Tasks are stored and displayed, but the logic for organizing and managing them can be improved.
+
+Several areas were identified as overly manual or lacking intelligence. For example, tasks are only sorted by priority and time, but there is no filtering by pet or completion status. Additionally, recurring tasks such as daily feeding are not automatically generated, and the system does not detect scheduling conflicts when tasks overlap in time.
+
+To improve the system, the following algorithmic features will be implemented:
+
+1. Sorting Tasks by Time  
+Tasks will be sorted based on their scheduled time to ensure a clear chronological schedule.
+
+2. Filtering Tasks  
+The system will allow filtering tasks by pet and by completion status (e.g., pending vs completed).
+
+3. Recurring Tasks  
+Tasks with a frequency (e.g., daily) will be automatically regenerated for future dates.
+
+4. Conflict Detection  
+The system will detect when two tasks overlap in time and notify the user of potential conflicts.
+
+These improvements will make the system more efficient and user-friendly by automating task management and improving schedule clarity.
