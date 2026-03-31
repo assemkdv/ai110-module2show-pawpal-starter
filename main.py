@@ -68,3 +68,23 @@ if new_task:
 print("\nUpdated Tasks")
 for task in owner.pets[0].tasks:
     print(task.display_task())
+
+from datetime import datetime
+
+same_time = datetime.now().replace(hour=10, minute=0)
+
+task1 = Task("Feed Dog", same_time, 2, "daily")
+task2 = Task("Vet Visit", same_time, 3, "daily")
+
+owner.pets[0].add_task(task1)
+owner.pets[0].add_task(task2)
+
+print("\nConflict Detection")
+
+conflicts = scheduler.detect_conflicts()
+
+if conflicts:
+    for t1, t2 in conflicts:
+        print(f"Conflict: '{t1.description}' and '{t2.description}' at {t1.scheduled_time}")
+else:
+    print("No conflicts detected.")

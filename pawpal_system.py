@@ -136,3 +136,16 @@ class Scheduler:
                 if task in pet.tasks:
                     pet.add_task(new_task)
                     break
+
+    def detect_conflicts(self):
+        """Detect tasks that are scheduled at the same time."""
+        tasks = self.get_all_tasks()
+        conflicts = []
+
+        # compare every pair of tasks
+        for i in range(len(tasks)):
+            for j in range(i + 1, len(tasks)):
+                if tasks[i].scheduled_time == tasks[j].scheduled_time:
+                    conflicts.append((tasks[i], tasks[j]))
+
+        return conflicts           
