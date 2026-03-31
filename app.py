@@ -1,5 +1,6 @@
 from pawpal_system import Owner, Pet, Task, Scheduler
 import streamlit as st
+from datetime import datetime
 
 st.set_page_config(page_title="PawPal+", page_icon="🐾", layout="centered")
 
@@ -16,9 +17,12 @@ pet_type = st.text_input("Pet Type")
 pet_age = st.number_input("Pet Age", min_value=0)
 
 if st.button("Add Pet"):
-    new_pet = Pet(pet_name, pet_type, pet_age)
-    owner.add_pet(new_pet)
-    st.success(f"{pet_name} added successfully!")
+    if pet_name and pet_type:
+        new_pet = Pet(pet_name, pet_type, pet_age)
+        owner.add_pet(new_pet)
+        st.success(f"{pet_name} added successfully!")
+    else:
+        st.error("Please enter pet name and type")
     
 st.header("Your Pets")
 
@@ -27,6 +31,30 @@ if owner.pets:
         st.write(f"🐾 {pet.name} ({pet.type}, {pet.age} years old)")
 else:
     st.write("No pets added yet.")
+
+from datetime import datetime  # make sure this is at the top of your file
+
+st.header("Add Task")
+
+if owner.pets:
+    pet_names = [pet.name for pet in owner.pets]
+    selected_pet_name = st.selectbox("Select Pet", pet_names)
+
+    task_desc = st.text_input("Task Description")
+
+    if st.button("Add Task"):
+        for pet in owner.pets:
+            if pet.name == selected_pet_name:
+                task = Task(
+                    description=task_desc,
+                    scheduled_time=datetime.now(),
+                    priority=1,
+                    frequency="daily"
+                )
+                pet.add_task(task)
+                st.success("Task added!")
+else:
+    st.warning("Add a pet first before adding tasks.")
 
 st.title("🐾 PawPal+")
 
