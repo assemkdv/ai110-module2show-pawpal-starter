@@ -38,3 +38,21 @@ for task in tasks_today:
     time_str = task.scheduled_time.strftime("%I:%M %p")
     status = "✅ Done" if task.completed else "⏳ Pending"
     print(f"- {task.description} at {time_str} | Priority: {task.priority} | {status}")
+
+# Create scheduler
+scheduler = Scheduler(owner)
+
+print("\nSorted Tasks")
+sorted_tasks = scheduler.sort_by_time(scheduler.get_all_tasks())
+for task in sorted_tasks:
+    print(task.display_task())
+
+print("\nPending Tasks")
+pending_tasks = scheduler.filter_by_status(False)
+for task in pending_tasks:
+    print(task.display_task())
+
+print("\n-Dog Tasks")
+dog_tasks = scheduler.filter_by_pet("Buddy")
+for task in dog_tasks:
+    print(task.display_task())

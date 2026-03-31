@@ -1,3 +1,4 @@
+from asyncio import tasks
 from dataclasses import dataclass, field
 from typing import List
 from datetime import datetime
@@ -87,3 +88,24 @@ class Scheduler:
         # sort by priority (higher first) and time
         tasks.sort(key=lambda t: (-t.priority, t.scheduled_time))
         return tasks
+    
+    def sort_by_time(self, tasks):
+        """Return tasks sorted by scheduled time."""
+        return sorted(tasks, key=lambda task: task.scheduled_time)
+    
+    def filter_by_status(self, completed=True):
+        """Return tasks filtered by completion status."""
+        return [
+            task for task in self.get_all_tasks()
+            if task.completed == completed
+        ]
+    
+    def filter_by_pet(self, pet_name):
+        """Return tasks for a specific pet."""
+        filtered_tasks = []
+
+        for pet in self.owner.pets:
+            if pet.name == pet_name:
+                filtered_tasks.extend(pet.tasks)
+
+        return filtered_tasks
