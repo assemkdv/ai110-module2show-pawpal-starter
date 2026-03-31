@@ -61,7 +61,30 @@ st.header("Today's Schedule")
 scheduler = Scheduler(owner)
 
 if st.button("Generate Schedule"):
-    tasks_today = scheduler.generate_daily_plan()
+    tasks_today = scheduler.sort_by_time(scheduler.get_all_tasks())
+
+    if tasks_today:
+        data = []
+        for task in tasks_today:
+            data.append({
+                "Task": task.description,
+                "Time": task.scheduled_time.strftime("%I:%M %p"),
+                "Priority": task.priority,
+                "Status": "Done" if task.completed else "Pending"
+            })
+
+        st.success("Schedule generated successfully!")
+        st.table(data)
+    else:
+        st.info("No tasks scheduled.")
+
+    conflicts = scheduler.detect_conflicts()
+
+if conflicts:
+    for t1, t2 in conflicts:
+        st.warning(
+            f"Conflict: '{t1.description}' and '{t2.description}' are scheduled at the same time!"
+        )
 
     if tasks_today:
         for task in tasks_today:

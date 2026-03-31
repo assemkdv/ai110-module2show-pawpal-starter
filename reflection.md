@@ -211,3 +211,7 @@ In addition to normal "happy path" scenarios, edge cases will also be tested, su
 - A pet with no tasks
 - Multiple tasks scheduled at the exact same time
 - Completing a non-recurring task
+
+### How should conflict warnings be shown?
+
+Conflict warnings should be displayed using Streamlit’s st.warning component so they are clearly visible to the user. The message should describe which tasks conflict and when, allowing the pet owner to easily identify and resolve scheduling issues. This approach ensures the system remains user-friendly while still providing important feedback.
