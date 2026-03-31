@@ -3,7 +3,7 @@ from typing import List
 from datetime import datetime
 
 
-# ------------------- Pet -------------------
+# Pet
 @dataclass
 class Pet:
     name: str
@@ -18,7 +18,7 @@ class Pet:
         pass
 
 
-# ------------------- Task -------------------
+# Task
 @dataclass
 class Task:
     task_name: str
@@ -36,7 +36,7 @@ class Task:
         pass
 
 
-# ------------------- Schedule -------------------
+# Schedule 
 class Schedule:
     def __init__(self):
         self.tasks: List[Task] = []
@@ -53,7 +53,7 @@ class Schedule:
         pass
 
 
-# ------------------- User -------------------
+# User
 class User:
     def __init__(self, name: str):
         self.name = name
